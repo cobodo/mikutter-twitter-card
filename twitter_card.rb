@@ -43,7 +43,7 @@ Plugin.create(:twitter_card) do
         return nil if resp.status != 200
 
         headers = resp.http_header.all.to_h
-        created = nil
+        created = Time.now
         if headers['Date']
           created = Time.parse(headers["Date"])
         end
@@ -67,7 +67,7 @@ Plugin.create(:twitter_card) do
         description = description.gsub(/[\r\n]/){ ' ' }[0...200]
         favicon = props['twitter:image'] || props['og:image']
 
-        TwitterCard.new(
+        @@cache[uri.to_s] = TwitterCard.new(
           uri: uri,
           description: description,
           created: created,
