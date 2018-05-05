@@ -43,9 +43,9 @@ Plugin.create(:twitter_card) do
         return nil if resp.status != 200
 
         headers = resp.http_header.all.to_h
-        created = Time.now
+        created = Time.now.localtime
         if headers['Date']
-          created = Time.parse(headers["Date"])
+          created = Time.parse(headers["Date"]).localtime
         end
         page = resp.content
         doc = Nokogiri::HTML(page)
