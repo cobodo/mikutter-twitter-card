@@ -1,0 +1,9 @@
+---
+slug: :twitter_card
+depends:
+  mikutter: 3.7.0
+  plugin: []
+version: '1.0'
+author: 
+name: twitter_card
+description: メッセージ内のURLに対してTwitter Cardっぽい引用表示をするプラグインです。
