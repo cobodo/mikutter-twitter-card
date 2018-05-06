@@ -63,7 +63,7 @@ Plugin.create(:twitter_card) do
 
         title = props['twitter:title'] || props['og:title']
         return nil unless title
-        description = props['twitter:description'] || props['og:description']
+        description = props['twitter:description'] || props['og:description'] || ''
         description = description.gsub(/[\r\n]/){ ' ' }[0...200]
         favicon = props['twitter:image'] || props['og:image']
 
